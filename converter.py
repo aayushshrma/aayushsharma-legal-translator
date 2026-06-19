@@ -1,6 +1,6 @@
 import os
 import re
-from utils import time_
+from app_utils import time_
 import streamlit as st
 from datalab_sdk import DatalabClient, ConvertOptions
 

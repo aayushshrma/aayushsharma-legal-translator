@@ -2,7 +2,7 @@ from pathlib import Path
 from openai import OpenAI
 import os
 import streamlit as st
-from utils import time_
+from app_utils import time_
 
 
 def translation_to_english(markdown_text, output_file, model_name="gpt-5.5"):
