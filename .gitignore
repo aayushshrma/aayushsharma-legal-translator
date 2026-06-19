@@ -3,11 +3,8 @@
 /.streamlit/secrets.toml
 /.venv
 /__pycache__
-/logs
 /main.py
 /utils.py
-/output_docx
-/output_ocr
-/output_translation
+/legacy
 /samples
 /true_output
