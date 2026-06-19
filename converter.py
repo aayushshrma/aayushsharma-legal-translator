@@ -39,8 +39,11 @@ def convert_to_markdown(doc_url, doc_name, pg_range: str):
         markdown_text = result.markdown
         markdown_text = clean_markdown(markdown_text)
 
-        with open(f"output_ocr/{doc_name}.md", "w", encoding="utf-8") as file:
-                file.write(markdown_text)
+        try:
+                with open(f"output_ocr/{doc_name}.md", "w", encoding="utf-8") as file:
+                        file.write(markdown_text)
+        except:
+               pass
 
         print("CONVERTED TO MARKDOWN SUCCESSFULLY!")
         end_time_, _, _ = time_()

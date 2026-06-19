@@ -137,7 +137,7 @@ if translate_clicked:
         progress_bar.progress(80)
 
         status.text("Generating DOCX...")
-        output_file_docx = f"output_docx/{doc_name}_translated.docx"
+        output_file_docx = f"{doc_name}_translated.docx"
         save_translation_docx(md_text=translated_text, output_file=output_file_docx)
         progress_bar.progress(90)
 
@@ -154,7 +154,7 @@ if translate_clicked:
         log_dict["OCR_SCORE"] = stats_ocr["OCR_SCORE"]
         log_dict["DURATION (TRANSLATION)"] = stats_trans["DURATION"]
         log_dict["COST (TRANSLATION)"] = stats_trans["COST"]
-        save_log_to_excel(log_dict=log_dict)
+        # save_log_to_excel(log_dict=log_dict)
         total_cost = (float(stats_ocr["COST"]) + float(stats_trans["COST"]))
         revenue = total_cost * 5
         log_dict["TOTAL COST"] = total_cost
@@ -197,4 +197,4 @@ if translate_clicked:
 
         with col2:
             st.metric("Cost", f"INR {revenue:.2f}")
-            
+

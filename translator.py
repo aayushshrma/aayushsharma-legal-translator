@@ -70,9 +70,11 @@ def translation_to_english(markdown_text, output_file, model_name="gpt-5.5"):
     # SAVE
     # --------------------------------------------------
 
-    Path(output_file).write_text(translated_markdown, encoding="utf-8")
-
-    print(f"Translation saved to: {output_file}")
+    try:
+        Path(output_file).write_text(translated_markdown, encoding="utf-8")
+        print(f"Translation saved to: {output_file}")
+    except:
+        pass
     end_time_, _, _ = time_()
     duration = (end_time_ - start_time_).total_seconds()/60
 
