@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 from converter import convert_to_markdown
 from translator import translation_to_english
-from utils import logger, save_log_to_excel, time_, save_translation_docx
+from app_utils import logger, save_log_to_excel, time_, save_translation_docx
 
 
 # ---------------------------------------------------------
