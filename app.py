@@ -197,4 +197,3 @@ if translate_clicked:
 
         with col2:
             st.metric("Cost", f"INR {revenue:.2f}")
-
