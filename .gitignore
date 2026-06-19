@@ -1,0 +1,11 @@
+/.env
+/.pytest_cache
+/.streamlit
+/.venv
+/__pycache__
+/logs
+/output_docx
+/output_ocr
+/output_translation
+/samples
+/true_output
