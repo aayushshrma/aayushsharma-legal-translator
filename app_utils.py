@@ -3,6 +3,9 @@ import pypandoc
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import pandas as pd
+import gspread
+from google.oauth2.service_account import Credentials
+import streamlit as st
 
 def save_translation_docx(md_text: str, output_file: str):
 
@@ -51,3 +54,14 @@ def save_log_to_excel(log_dict: dict, excel_file: str = "logs/logs.xlsx"):
 
         df = new_row
     df.to_excel(excel_file, index=False)
+
+
+def save_log_to_sheet(log_dict: dict):
+    SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+
+    creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=SCOPES)
+    client = gspread.authorize(creds)
+
+    sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1hitGMr5kAdGaY8kowYNYAT4q1GB1CpPvuwV3gYm5DME/edit?usp=sharing").sheet1
+
+    sheet.append_row(list(log_dict.values()))

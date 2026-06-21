@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 from converter import convert_to_markdown
 from translator import translation_to_english
-from app_utils import logger, save_log_to_excel, time_, save_translation_docx
+from app_utils import logger, save_log_to_sheet, time_, save_translation_docx
 
 
 # ---------------------------------------------------------
@@ -154,12 +154,11 @@ if translate_clicked:
         log_dict["OCR_SCORE"] = stats_ocr["OCR_SCORE"]
         log_dict["DURATION (TRANSLATION)"] = stats_trans["DURATION"]
         log_dict["COST (TRANSLATION)"] = stats_trans["COST"]
-        # save_log_to_excel(log_dict=log_dict)
         total_cost = (float(stats_ocr["COST"]) + float(stats_trans["COST"]))
         revenue = total_cost * 5
         log_dict["TOTAL COST"] = total_cost
         log_dict["REVENUE (INR)"] = revenue
-
+        save_log_to_sheet(log_dict=log_dict)
 
         translated_file_path = output_file_docx
         progress_bar.progress(100)
